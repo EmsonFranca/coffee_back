@@ -17,7 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import SimpleRouter
-from rest_framework.authtoken import views
+
+from rest_framework_simplejwt.views import TokenObtainPairView,TokenRefreshView
+
 from accounts.Api.views import AccountListCreateView
 from register.Api.views import RegisterListCreateView
 from recipes.Api.views import RecipeListCreateView, IngredientListCreateView
@@ -35,7 +37,9 @@ router.register("api/ingredient", IngredientListCreateView, basename="ingredient
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/token-auth/", views.obtain_auth_token),
+    # path("api/token-auth/", views.obtain_auth_token),
+    path("api/token/", TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Rota para obter o token de acesso
+    path("api/token-refresh/", TokenRefreshView.as_view(), name='token_refresh'),  # Rota para refresh token
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     path('swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     
