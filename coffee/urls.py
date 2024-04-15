@@ -22,11 +22,7 @@ urlpatterns = [
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     path('swagger/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     
-<<<<<<< HEAD
-]+router.urls
-=======
 ]+router.urls
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
->>>>>>> d88eb45d08068087e5310f2632a6f0c36a04b7be
