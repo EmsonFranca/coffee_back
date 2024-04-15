@@ -9,7 +9,8 @@ class Recipes (models.Model):
     intensity = models.IntegerField(default=1)
     description = models.TextField()
     preparation = models.TextField()
-    user = models.ForeignKey(CustomUser, related_name='recipes', on_delete=models.CASCADE)
+    user_id = models.IntegerField(default=1)
+    likes = models.IntegerField(default=1)
 
     def _str_(self):
         return self.title
