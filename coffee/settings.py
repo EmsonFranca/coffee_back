@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-dh!$^^6t&@jt-^0d@x@^dh19zchf^-6zi7!3l-@cgxd5g9x2-a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'corsheaders',
     'drf_spectacular',
+    # My app's
     'recipes',
     'user',
 ]
@@ -150,7 +151,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
        
     ],
-   
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 

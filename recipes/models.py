@@ -1,5 +1,8 @@
 from django.db import models
 
+from user.models import CustomUser
+
+
 # Create your models here.
 class Recipes (models.Model):
     title = models.CharField(max_length=100)
